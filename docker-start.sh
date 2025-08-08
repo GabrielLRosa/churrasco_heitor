@@ -39,7 +39,6 @@ set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# Verificações básicas de ferramentas
 if ! command -v npm >/dev/null 2>&1; then
   echo "Erro: npm não encontrado. Instale o Node.js (inclui o npm)." >&2
   exit 1
@@ -55,7 +54,6 @@ if ! command -v docker >/dev/null 2>&1; then
   exit 1
 fi
 
-# Detecta comando docker compose
 if docker compose version >/dev/null 2>&1; then
   DOCKER_COMPOSE_CMD="docker compose"
 elif command -v docker-compose >/dev/null 2>&1; then
@@ -65,7 +63,6 @@ else
   exit 1
 fi
 
-# Instala dependências no React
 if [ -f "$ROOT_DIR/frontend/react/package.json" ]; then
   echo "Instalando dependências do React (frontend/react)..."
   pushd "$ROOT_DIR/frontend/react" >/dev/null
@@ -79,7 +76,6 @@ else
   echo "Aviso: arquivo package.json não encontrado em frontend/react; pulando."
 fi
 
-# Instala dependências no backend
 if [ -f "$ROOT_DIR/backend/package.json" ]; then
   echo "Instalando dependências do backend (backend)..."
   pushd "$ROOT_DIR/backend" >/dev/null
@@ -93,7 +89,6 @@ else
   echo "Aviso: arquivo package.json não encontrado em backend; pulando."
 fi
 
-# Instala dependências PHP com Composer
 if [ -f "$ROOT_DIR/frontend/php/composer.json" ]; then
   echo "Instalando dependências PHP (frontend/php) com Composer..."
   pushd "$ROOT_DIR/frontend/php" >/dev/null

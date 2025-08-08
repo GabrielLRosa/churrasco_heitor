@@ -54,8 +54,6 @@ export const ChecklistProvider: React.FC<ChecklistProviderProps> = ({ children }
     activeFilters: null
   });
 
-  // const [lastParams, setLastParams] = useState<ChecklistListParams | undefined>();
-
   const clearError = useCallback(() => {
     setState(prev => ({ ...prev, error: null }));
   }, []);

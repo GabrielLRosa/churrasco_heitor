@@ -148,7 +148,6 @@ export const ChecklistTable: React.FC<ChecklistTableProps> = ({
           <div className="checklist-table__header-cell">Ações</div>
         </div>
 
-        {/* Corpo da tabela */}
         <div className="checklist-table__body">
           {checklists.map((checklist) => {
             const tankFull = getBooleanDisplay(checklist.tank_full);

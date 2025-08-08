@@ -1,5 +1,3 @@
-// frontend/react/src/components/Toast/Toast.tsx
-
 import React from 'react';
 import './Toast.scss';
 import type { ToastState } from '../../../hooks/useToast';

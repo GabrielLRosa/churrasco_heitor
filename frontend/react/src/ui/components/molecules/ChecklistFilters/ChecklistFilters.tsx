@@ -24,7 +24,6 @@ export const ChecklistFilters: React.FC<ChecklistFiltersProps> = ({
   const [showFilters, setShowFilters] = useState(false);
   const buttonRef = useRef<HTMLDivElement>(null);
 
-  // Hook custom para detectar cliques fora
   const { ref: tooltipRef } = useClickOutside({
     onOutsideClick: showFilters ? () => setShowFilters(false) : undefined,
     enabled: showFilters,

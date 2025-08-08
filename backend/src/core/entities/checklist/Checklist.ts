@@ -1,4 +1,3 @@
-// Reexportando tipos compartilhados
 export { 
   ChecklistAttributes, 
   ChecklistCreationAttributes, 

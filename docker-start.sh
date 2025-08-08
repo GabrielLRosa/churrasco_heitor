@@ -145,22 +145,3 @@ echo "   Swagger Docs:                 http://localhost:8081/api-docs"
 echo "   React Frontend (Dev):         http://localhost:5174"
 
 echo ""
-echo "📋 Aplicação ($ENV_NAME):"
-echo "   - PHP Frontend com CodeIgniter 3"
-echo "   - React dev server com hot reload"
-echo "   - Backend API com hot reload"
-echo "   - PostgreSQL database"
-echo "   - Redis cache"
-
-echo ""
-echo "🐳 Comandos úteis:"
-echo "   Ver logs:              docker compose --env-file $ENV_FILE logs -f"
-echo "   Ver logs backend:      docker compose --env-file $ENV_FILE logs -f backend"
-echo "   Ver logs PHP:          docker compose --env-file $ENV_FILE logs -f php"
-echo "   Parar aplicação:       docker compose --env-file $ENV_FILE down"
-echo "   Parar Vite:            kill \$(cat .vite.pid 2>/dev/null) 2>/dev/null || echo 'Vite não está rodando'"
-
-echo ""
-echo "🔥 Hot reload ativo! Edite os arquivos React e veja as mudanças automaticamente."
-
-echo ""

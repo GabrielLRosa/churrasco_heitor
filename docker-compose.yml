@@ -45,11 +45,6 @@ services:
     volumes:
       - ./backend:/usr/src/app
       - backend_node_modules:/usr/src/app/node_modules
-    develop: 
-      watch:
-        - action: sync
-          path: ./src
-          target: /usr/src/app/src
     entrypoint: "sh -c \"chmod +x ./wait-for-db.sh && ([ -d node_modules ] || (npm ci --no-audit --no-fund || npm install --no-audit --no-fund)) && ./wait-for-db.sh && npm run dev\""
 
   # Container PHP com CodeIgniter

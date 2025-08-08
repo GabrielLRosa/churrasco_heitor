@@ -19,13 +19,13 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 WORKDIR /var/www/html
 
+COPY composer.json ./
+RUN if [ ! -f composer.lock ]; then composer update --no-interaction --no-scripts --no-plugins --no-progress --no-dev; fi
 COPY composer.json composer.lock* ./
-
 RUN composer install --no-interaction --prefer-dist --optimize-autoloader || true
 
 COPY . /var/www/html/
 
-# Create logs directory for CodeIgniter
 RUN mkdir -p /var/www/html/application/logs
 
 RUN chown -R www-data:www-data /var/www/html \

@@ -118,5 +118,26 @@ O `npm run build` usa `.env.prod` para buildar imagens docker e gerar o build de
 - Se a porta estiver em uso, encerre processos antigos ou mude as portas no `.env`.
 - Para rebuild sem subir containers (produção): `npm run build`
 - Para logs em dev: `npm run logs`, `npm run logs:backend`, `npm run logs:db`
+- Mantenha os lockfiles versionados (obrigatório para reproduzir os ambientes de dev e prod):
+  - Node/JS: `package-lock.json` em cada projeto Node (ex.: `backend/` e `frontend/react/`). Use `npm ci` em CI/produção para respeitar o lock.
+  - PHP: `frontend/php/composer.lock`. Use `composer install --no-dev --prefer-dist --no-interaction` em produção para respeitar o lock.
 
 ---
+
+## 🧩 Troubleshooting
+
+- Erro: "Cannot find module '@rollup/rollup-<platform>'" ao rodar build do React
+  - Como resolver (qualquer SO):
+    1. Use Node 20 e npm >= 9
+       - Com nvm: `nvm use 20 || (nvm install 20 && nvm use 20)`
+    2. Garanta que opcionais estão habilitados no npm
+       - Verifique: `npm config get optional` (deve retornar `true`)
+       - Se necessário: `npm config set optional true`
+    3. Reinstale dependências do frontend React com versões travadas
+       - `cd frontend/react && rm -rf node_modules package-lock.json && npm install`
+       - ou: `npm ci`
+    4. Em Alpine Linux, instale compatibilidade glibc para binários do Rollup
+       - `apk add --no-cache libc6-compat`
+    5. Se usar outro gerenciador de pacotes:
+       - pnpm: `pnpm i --config.optional=true`
+       - yarn: `yarn add -D rollup@^4` (prefira npm neste projeto)

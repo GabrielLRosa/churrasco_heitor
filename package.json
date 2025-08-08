@@ -4,7 +4,7 @@
   "description": "API de checklist com Node.js + TypeScript + PostgreSQL",
   "scripts": {
     "dev": "./docker-start.sh dev",
-    "dev:compose": "compose --env-file .env.dev up --build -d",
+    "dev:compose": "dockercompose --env-file .env.dev up --build -d",
     "build": "./docker-start.sh prod",
     "stop": "docker compose --env-file .env.dev down && kill $(cat .vite.pid 2>/dev/null) 2>/dev/null || echo 'Vite não está rodando'",
     "clean": "docker system prune -a",

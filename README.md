@@ -124,6 +124,37 @@ O `npm run build` usa `.env.prod` para buildar imagens docker e gerar o build de
 
 ---
 
+## 💻 Windows (observação)
+
+Em ambientes Windows (sem WSL/Git Bash), rode a instalação das dependências manualmente e depois suba os containers com o Compose:
+
+1) Instale dependências em cada pasta:
+
+```
+cd frontend/react && npm ci || npm install && cd ../..
+cd backend && npm ci || npm install && cd ..
+cd frontend/php && composer install --no-interaction --prefer-dist --optimize-autoloader && cd ../..
+```
+
+2) Suba os containers (modo desenvolvimento):
+
+```
+npm run dev:compose
+```
+
+Se preferir, execute diretamente:
+
+```
+docker compose --env-file .env.dev up --build -d
+```
+
+Para hot reload do React em Windows, execute o Vite localmente se necessário:
+
+```
+cd frontend/react
+npm run dev
+```
+
 ## 🧩 Troubleshooting
 
 - Erro: "Cannot find module '@rollup/rollup-<platform>'" ao rodar build do React

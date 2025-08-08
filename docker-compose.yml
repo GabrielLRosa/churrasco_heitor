@@ -45,7 +45,7 @@ services:
     volumes:
       - ./backend:/usr/src/app
       - backend_node_modules:/usr/src/app/node_modules
-    entrypoint: "sh -c \"chmod +x ./wait-for-db.sh && ([ -d node_modules ] || (npm ci --no-audit --no-fund || npm install --no-audit --no-fund)) && ./wait-for-db.sh && npm run dev\""
+    entrypoint: "sh -c \"([ -d node_modules ] || (npm ci --no-audit --no-fund || npm install --no-audit --no-fund)) && npm run dev\""
 
   # Container PHP com CodeIgniter
   php:

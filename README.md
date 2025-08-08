@@ -96,6 +96,9 @@ APP_PORT=8081
 REDIS_HOST=redis
 REDIS_PORT=6379
 REDIS_DB=0
+
+#React
+VITE_PORT=5173
 ```
 
 O `npm run build` usa `.env.prod` para buildar imagens docker e gerar o build de React; não inicia containers.

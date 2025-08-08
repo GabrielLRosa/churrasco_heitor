@@ -1,6 +1,6 @@
 import React from 'react';
 import './Toast.scss';
-import type { ToastState } from '../../../hooks/useToast';
+import type { ToastState } from '@ui/hooks/useToast';
 import { IoCheckmarkCircle, IoCloseCircle, IoWarning } from 'react-icons/io5';
 
 export interface ToastProps extends ToastState {

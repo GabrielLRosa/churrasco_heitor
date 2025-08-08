@@ -1,7 +1,7 @@
-import type { ChecklistAttributes as Checklist, IChecklistRepository } from '../core/entities';
-import type { ChecklistListParams, ListCheckListResponse, CreateChecklistRequest } from '../shared/types';
-import { checklistClient } from '../infra/api';
-import { API_ENDPOINTS } from '../shared/constants';
+import type { ChecklistAttributes as Checklist, IChecklistRepository } from '@core/entities';
+import type { ChecklistListParams, ListCheckListResponse, CreateChecklistRequest } from '@shared/types';
+import { checklistClient } from '@infra/api';
+import { API_ENDPOINTS } from '@shared/constants';
 
 export class ChecklistRepository implements IChecklistRepository {
 

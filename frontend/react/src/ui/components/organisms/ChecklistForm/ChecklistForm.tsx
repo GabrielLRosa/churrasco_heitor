@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Checkbox } from '../../atoms';
-import type { CreateChecklistRequest } from '../../../../shared/types';
+import { Button, Checkbox } from '@ui/components/atoms';
+import type { CreateChecklistRequest } from '@shared/types';
 import './ChecklistForm.scss';
 
 export interface ChecklistFormProps {

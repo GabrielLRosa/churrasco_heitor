@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import { Button } from '../../atoms/Button';
-import { useClickOutside } from '../../../hooks';
+import { Button } from '@ui/components/atoms/Button';
+import { useClickOutside } from '@ui/hooks';
 import { IoIosCloseCircle } from "react-icons/io";
 import './Modal.scss';
 

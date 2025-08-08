@@ -1,13 +1,13 @@
 /* eslint-disable react-refresh/only-export-components */
 import React, { createContext, useContext, useState, useCallback, type ReactNode } from 'react';
 import type { 
-  Checklist, 
+  ChecklistAttributes as Checklist, 
   CreateChecklistRequest, 
   ChecklistListParams 
-} from '../../shared/types';
-import type { IChecklistRepository } from '../../core/entities';
-import { CreateChecklistService, GetChecklistsService } from '../../infra/services';
-import { ChecklistRepository } from '../../repositories';
+} from '@shared/types';
+import type { IChecklistRepository } from '@core/entities';
+import { CreateChecklistService, GetChecklistsService } from '@infra/services';
+import { ChecklistRepository } from '@repositories/ChecklistRepository';
 
 interface ChecklistState {
   checklists: Checklist[];

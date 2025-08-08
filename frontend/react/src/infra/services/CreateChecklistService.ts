@@ -1,5 +1,5 @@
-import type { ChecklistAttributes as Checklist, IChecklistRepository } from '../../core/entities';
-import type { CreateChecklistRequest } from '../../shared/types';
+import type { ChecklistAttributes as Checklist, IChecklistRepository } from '@core/entities';
+import type { CreateChecklistRequest } from '@shared/types';
 
 export class CreateChecklistService {
   private checklistRepository: IChecklistRepository;

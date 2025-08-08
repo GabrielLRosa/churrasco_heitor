@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '../../atoms';
+import { Button } from '@ui/components/atoms';
 import './Pagination.scss';
 import { IoIosArrowDroprightCircle, IoIosArrowDropleftCircle } from "react-icons/io";
 

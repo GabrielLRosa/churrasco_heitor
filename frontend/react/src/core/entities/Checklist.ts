@@ -4,9 +4,9 @@ export type {
   ChecklistResponse,
   CreateChecklistRequest,
   ChecklistRepository
-} from '../../../../../shared/types';
+} from '@shared/types';
 
-import type {ChecklistAttributes as Checklist, ChecklistListParams, CreateChecklistRequest, ListCheckListResponse, ChecklistRepository } from '../../../../../shared/types';
+import type {ChecklistAttributes as Checklist, ChecklistListParams, CreateChecklistRequest, ListCheckListResponse, ChecklistRepository } from '@shared/types';
 
 
 export function isComplete(checklist: Checklist): boolean {

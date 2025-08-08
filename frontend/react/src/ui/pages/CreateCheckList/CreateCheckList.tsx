@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { PageLayout } from "../../components/templates";
-import { ChecklistForm } from "../../components/molecules";
-import { Button } from "../../components/atoms";
-import { useChecklistContext } from "../../contexts";
-import type { CreateChecklistRequest } from "../../../shared/types";
+import { PageLayout } from "@ui/components";
+import { ChecklistForm } from "@ui/components";
+import { Button } from "@ui/components/atoms";
+import { useChecklistContext } from "@ui/contexts";
+import type { CreateChecklistRequest } from "@shared/types";
 import { IoRefreshCircle } from "react-icons/io5";
 import "./CreateCheckList.scss";
-import { Toast } from "../../components/atoms";
-import { useToast } from "../../hooks";
+import { Toast } from "@ui/components/atoms";
+import { useToast } from "@ui/hooks";
 import { useNavigate } from 'react-router-dom';
 
 export const CreateCheckList: React.FC = () => {

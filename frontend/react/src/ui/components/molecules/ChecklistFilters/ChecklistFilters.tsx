@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
-import { Button } from '../../atoms';
-import { useClickOutside } from '../../../hooks';
-import type { ChecklistListParams } from '../../../../shared/types';
+import { Button } from '@ui/components/atoms';
+import { useClickOutside } from '@ui/hooks';
+import type { ChecklistListParams } from '@shared/types';
 import { RiFilterFill } from "react-icons/ri";
 import { RiFilterOffFill } from "react-icons/ri";
 import './ChecklistFilters.scss';

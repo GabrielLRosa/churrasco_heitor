@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { API_BASE_URL } from '../../shared/constants';
+import { API_BASE_URL } from '@shared/constants';
 
 const checklistClient = axios.create({
   baseURL: API_BASE_URL,

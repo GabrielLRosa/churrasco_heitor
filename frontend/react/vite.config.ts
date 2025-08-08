@@ -8,6 +8,16 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [react()],
+    resolve: {
+      alias: {
+        '@core': path.resolve(__dirname, 'src/core'),
+        '@infra': path.resolve(__dirname, 'src/infra'),
+        '@repositories': path.resolve(__dirname, 'src/repositories'),
+        '@shared': path.resolve(__dirname, 'src/shared'),
+        '@styles': path.resolve(__dirname, 'src/styles'),
+        '@ui': path.resolve(__dirname, 'src/ui'),
+      },
+    },
     build: {
       // Aponta a saída do build para a pasta public/assets do projeto PHP
       outDir: path.resolve(__dirname, '../php/public/assets'),

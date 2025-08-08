@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import type { Checklist } from '../../../../shared/types';
-import { Button } from '../../atoms';
+import type{ ChecklistAttributes as Checklist } from '@shared/types';
+import { Button } from '@ui/components/atoms';
 import { IoIosArrowDropdownCircle, IoIosArrowDropupCircle } from "react-icons/io";
 import { TbLayoutNavbarExpandFilled, TbLayoutBottombarExpandFilled } from "react-icons/tb";
 import './ChecklistTable.scss';

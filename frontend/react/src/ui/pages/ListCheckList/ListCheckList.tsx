@@ -1,24 +1,34 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { PageLayout } from '../../components/templates';
-import { ChecklistForm, ChecklistFilters, Pagination, Modal } from '../../components/molecules';
-import { ChecklistTable } from '../../components/organisms';
-import { Button, Toast } from '../../components/atoms';
-import { useChecklistContext } from '../../contexts';
-import type { CreateChecklistRequest, ChecklistListParams } from '../../../shared/types';
-import { IoRefreshCircle } from "react-icons/io5";
-import './ListCheckList.scss';
-import { useToast } from '../../hooks';
+import React, { useState, useEffect, useCallback } from "react";
+import {
+  PageLayout,
+  ChecklistForm,
+  ChecklistFilters,
+  Pagination,
+  Modal,
+  ChecklistTable,
+  Button,
+  Toast,
+} from "@ui/components";
 
-type SortField = 'created_at' | 'tank_full' | 'has_step' | 'has_license';
-type SortDirection = 'asc' | 'desc';
+import { useChecklistContext } from "@ui/contexts";
+import type {
+  CreateChecklistRequest,
+  ChecklistListParams,
+} from "@shared/types";
+import { IoRefreshCircle } from "react-icons/io5";
+import "./ListCheckList.scss";
+import { useToast } from "@ui/hooks";
+
+type SortField = "created_at" | "tank_full" | "has_step" | "has_license";
+type SortDirection = "asc" | "desc";
 
 export const ListCheckList: React.FC = () => {
   const [showForm, setShowForm] = useState(false);
-  const [sortField, setSortField] = useState<SortField>('created_at');
-  const [sortDirection, setSortDirection] = useState<SortDirection>('desc');
+  const [sortField, setSortField] = useState<SortField>("created_at");
+  const [sortDirection, setSortDirection] = useState<SortDirection>("desc");
   const [currentPage, setCurrentPage] = useState(1);
   const [pageLimit, setPageLimit] = useState(10);
-  
+
   const {
     checklists,
     loading,
@@ -32,13 +42,12 @@ export const ListCheckList: React.FC = () => {
     activeFilters,
   } = useChecklistContext();
 
-
   useEffect(() => {
     getChecklists({
       ...(activeFilters ?? {}),
       limit: pageLimit,
       page: currentPage,
-      sort: `${sortField},${sortDirection}`
+      sort: `${sortField},${sortDirection}`,
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -50,13 +59,12 @@ export const ListCheckList: React.FC = () => {
       await createChecklist(data);
       setShowForm(false);
       showToast({
-        message: 'Operação concluída com sucesso!',
-        variant: 'success',
+        message: "Operação concluída com sucesso!",
+        variant: "success",
         time: 2000,
       });
-      
     } catch (error) {
-      console.error('Erro ao criar checklist:', error);
+      console.error("Erro ao criar checklist:", error);
     }
   };
 
@@ -82,8 +90,9 @@ export const ListCheckList: React.FC = () => {
   }, [error, clearError]);
 
   useEffect(() => {
-    (window as { openChecklistForm?: () => void }).openChecklistForm = openCreateForm;
-    
+    (window as { openChecklistForm?: () => void }).openChecklistForm =
+      openCreateForm;
+
     return () => {
       delete (window as { openChecklistForm?: () => void }).openChecklistForm;
     };
@@ -95,7 +104,7 @@ export const ListCheckList: React.FC = () => {
       ...filters,
       page: 1,
       limit: pageLimit,
-      sort: `${sortField},${sortDirection}`
+      sort: `${sortField},${sortDirection}`,
     });
     if (error) {
       clearError();
@@ -110,7 +119,7 @@ export const ListCheckList: React.FC = () => {
       ...(activeFilters ?? {}),
       page: 1,
       limit: pageLimit,
-      sort: `${field},${direction}`
+      sort: `${field},${direction}`,
     });
   };
 
@@ -120,7 +129,7 @@ export const ListCheckList: React.FC = () => {
       ...(activeFilters ?? {}),
       page,
       limit: pageLimit,
-      sort: `${sortField},${sortDirection}`
+      sort: `${sortField},${sortDirection}`,
     });
   };
 
@@ -131,7 +140,7 @@ export const ListCheckList: React.FC = () => {
       ...(activeFilters ?? {}),
       page: 1,
       limit: newLimit,
-      sort: `${sortField},${sortDirection}`
+      sort: `${sortField},${sortDirection}`,
     });
   };
 

@@ -1,0 +1,38 @@
+{
+  "name": "checklist_app",
+  "version": "1.0.0",
+  "description": "API de checklist com Node.js + TypeScript + PostgreSQL",
+  "scripts": {
+    "dev": "./docker-start.sh dev",
+    "build": "./docker-start.sh prod",
+    "stop": "docker compose --env-file .env.dev down && kill $(cat .vite.pid 2>/dev/null) 2>/dev/null || echo 'Vite não está rodando'",
+    "clean": "docker system prune -a",
+    "logs": "docker compose --env-file .env.dev logs -f",
+    "logs:backend": "docker compose --env-file .env.dev logs -f backend",
+    "logs:php": "docker compose --env-file .env.dev logs -f php",
+    "logs:db": "docker compose --env-file .env.dev logs -f db",
+    "test": "npm run test:backend && npm run test:frontend",
+    "test:backend": "cd backend && npm test",
+    "test:frontend": "cd frontend/react && npm test",
+    "test:coverage:all": "npm run test:backend -- --coverage && npm run test:frontend -- --coverage"
+  },
+  "keywords": [
+    "docker",
+    "typescript",
+    "nodejs",
+    "postgresql",
+    "redis",
+    "checklist",
+    "api"
+  ],
+  "author": "Gabriel Rosa",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/axios": "^0.9.36",
+    "@types/connect": "^3.4.38",
+    "nyc": "^15.1.0"
+  },
+  "dependencies": {
+    "react-router-dom": "^7.7.1"
+  }
+}

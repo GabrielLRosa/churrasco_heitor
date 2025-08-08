@@ -1,0 +1,54 @@
+// Colors
+$primary: #3D5FD9;
+$success: #4caf50;
+$warning: #ff9800;
+$danger: #f44336;
+
+$primary-light: #4D78E4;
+$success-light: #D1FAE5;
+$danger-light: #FEE2E2;
+$warning-light: #ffc977f5;
+
+$background-light: #f5f7fa;
+$background-dark: #c3cfe2;
+
+$white: #ffffff;
+$gray-100: #E5E7EB;
+$gray-200: #F9FAFB;
+$gray-300: #bdbdbd;
+$gray-600: #757575;
+$gray-900: #212121;
+$black: #000000;
+$black-100: #051242;
+
+// Typography
+$font-family: 'Inter', sans-serif;
+$font-size-base: 16px;
+$font-size-esm: 10px;
+$font-size-sm: 14px;
+$font-size-lg: 18px;
+$font-size-xl: 24px;
+$font-size-xxl: 32px;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+// Spacing
+$spacing-4: 4px;
+$spacing-8: 8px;
+$spacing-12: 12px;
+$spacing-16: 16px;
+$spacing-20: 20px;
+$spacing-24: 24px;
+$spacing-32: 32px;
+
+// Borders
+$border-radius: 8px;
+$border-color: $gray-100;
+
+// Shadows
+$shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+$shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.15);
+
+// Transitions
+$transition: 0.2s ease;

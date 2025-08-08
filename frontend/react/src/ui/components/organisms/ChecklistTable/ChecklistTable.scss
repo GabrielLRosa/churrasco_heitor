@@ -1,0 +1,213 @@
+@import "../../../../styles/base/variables";
+
+.checklist-table {
+  &__container {
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    background: $white;
+  }
+  &__header,
+  &__row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 0;
+    font-size: $font-size-sm;
+  }
+
+  &__header {
+    background: $white;
+    border-bottom: 2px solid $background-dark;
+
+    :first-child { border-top-left-radius: $border-radius; }
+    :last-child { border-top-right-radius: $border-radius; }
+
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+    
+  }
+
+  &__header-cell {
+    padding: $spacing-16;
+    font-weight: $font-weight-bold;
+    color: $black-100;
+    border-right: 1px solid $border-color;
+    display: flex;
+    align-items: center;
+
+    &:last-child {
+      border-right: none;
+    }
+
+    &--sortable {
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.15s ease;
+
+      &:hover {
+        background: $primary-light;
+        color: $white;
+      }
+    }
+
+    &--active {
+      background: $primary;
+      color: $white;
+      gap: $spacing-8;
+    }
+  }
+
+  &__row {
+    border-bottom: 1px solid $gray-100;
+    transition: background-color 0.15s ease;
+
+    &:hover {
+      background: $gray-200;
+    }
+
+    &--expanded {
+      background: $gray-200;
+    }
+  }
+
+  &__cell {
+    padding: $spacing-16;
+    border-right: 1px solid $gray-100;
+    display: flex;
+    align-items: center;
+    min-height: 60px;
+
+    &:last-child {
+      border-right: none;
+    }
+
+    &--actions {
+      justify-content: center;
+
+      button span:has(svg) {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+
+  &__status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: $spacing-4 $spacing-8;
+    border-radius: $spacing-4;
+    font-size: $spacing-12;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+    min-width: 45px;
+
+    &--yes {
+      background: $success-light;
+      color: $success;
+    }
+
+    &--no {
+      background: $danger-light;
+      color: $danger;
+    }
+  }
+
+  &__action-button {
+    font-size: $spacing-12;
+    padding: $spacing-4 $spacing-12;
+  }
+
+  &__details {
+    background: $gray-100;
+    border-bottom: 1px $border-color;
+    animation: slideDown 0.2s ease-out;
+  }
+
+  &__details-content {
+    padding: $spacing-24;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-12;
+  }
+
+  &__detail-item {
+    display: flex;
+    align-items: center;
+    gap: $spacing-8;
+    font-size: $font-size-sm;
+  }
+
+  &__detail-label {
+    font-weight: $font-weight-bold;
+    color: $black-100;
+    min-width: 140px;
+  }
+
+  &__detail-value {
+    color: $gray-600;
+    font-family: monospace;
+    font-size: font-size-sm;
+    word-break: break-all;
+    padding: $spacing-4 $spacing-8;
+    background: $white;
+    border: $border-color;
+    border-radius: $border-radius;
+  }
+
+  &__loading,
+  &__error,
+  &__empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: $spacing-32 $spacing-16;
+    text-align: center;
+    border: 1px solid $gray-100;
+    border-radius: $border-radius;
+    background: $white;
+  }
+
+  &__spinner,
+  &__error-icon,
+  &__empty-icon {
+    font-size: $font-size-xxl;
+    margin-bottom: $spacing-16;
+    opacity: 0.6;
+  }
+
+  &__loading p,
+  &__error p,
+  &__empty p {
+    color: $gray-600;
+    margin: $spacing-8 0 0 0;
+  }
+
+  &__error h3,
+  &__empty h3 {
+    color: $black-100;
+    margin: 0 0 $spacing-8 0;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+  }
+}
+
+@media (max-width: 1000px) {
+  .checklist-table {
+    &__header-cell--date,
+    &__cell--date {
+      display: none;
+    }
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-$spacing-8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

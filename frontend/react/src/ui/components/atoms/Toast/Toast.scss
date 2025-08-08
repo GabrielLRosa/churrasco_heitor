@@ -1,0 +1,77 @@
+@import '../../../../styles/main.scss';
+
+@keyframes progress {
+    from {
+      width: 100%;
+    }
+    to {
+      width: 0%;
+    }
+  }
+  
+  .toast {
+    position: fixed;
+    top: 5%;
+    right: 0;
+
+    border-top-left-radius: $border-radius;
+    border-bottom-left-radius: $border-radius;
+
+    background-color: $white;
+
+    cursor: pointer;
+
+    &--success {
+        background-color: $success-light;
+        color: $success;
+
+        .toast__content-line {
+            background-color: $success;
+        }
+    }
+
+    &--danger {
+        background-color: $danger-light;
+        color: $danger;
+
+        .toast__content-line {
+            background-color: $danger;
+        }
+    }
+
+    &--warning {
+        background-color: $warning-light;
+        color: $warning;
+
+        .toast__content-line {
+            background-color: $warning;
+        }
+    }
+
+    &__content {
+        position: relative;
+        @include flex-center;
+
+        svg {
+            margin-left: $spacing-12; 
+            display: block;
+          }
+
+        &-msg {
+            font-size: $font-size-sm;
+            font-weight: $font-weight-bold;
+            color: inherit;
+            margin-inline: $spacing-8 $spacing-24;
+            margin-block: $spacing-16;
+        }
+
+        &-line {
+            position: absolute;
+            bottom: 1px;
+            left: 3px;
+            height: 4px;
+            animation: progress var(--toast-time) linear forwards;
+
+        }
+     }
+}

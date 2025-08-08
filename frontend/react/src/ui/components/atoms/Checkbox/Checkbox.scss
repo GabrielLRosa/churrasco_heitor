@@ -1,0 +1,103 @@
+@import '../../../../styles/base/variables';
+@import '../../../../styles/base/mixins';
+
+.checkbox {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-4;
+
+  &--disabled {
+
+    .checkbox__label {
+      cursor: not-allowed;
+      color: $gray-600; 
+
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+
+    .checkbox__checkmark {
+      background-color: $gray-100;
+      border-color: $border-color;
+    }
+  }
+
+  &--error {
+    .checkbox__checkmark {
+      border-color: $danger;
+    }
+
+    .checkbox__input:checked + .checkbox__checkmark {
+      background-color: $danger;
+      border-color: $danger;
+    }
+  }
+
+ 
+
+  &__input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    &:checked + .checkbox__checkmark {
+      background-color: $primary;
+      border-color: $primary;
+    }
+
+    &:focus + .checkbox__checkmark {
+      box-shadow: 0 0 0 3px rgba($primary, 0.1);
+    }
+  }
+
+  &__checkmark {
+    width: 20px;
+    height: 20px;
+    border: 2px solid $border-color;
+    border-radius: $spacing-4;
+    background-color: $white;
+    @include flex-center;
+    transition: all $transition;
+  }
+
+  &__check {
+    color: $white;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-bold;
+    line-height: 1;
+  }
+
+  &__label {
+    font-size: $font-size-base;
+    color: $gray-900;
+    cursor: pointer;
+    user-select: none;
+
+    @include flex-center;
+    gap: $spacing-12;
+    cursor: pointer;
+    justify-content: flex-start;
+
+    &:hover:not(.checkbox--disabled) .checkbox__checkmark {
+      border-color: $gray-300;
+    }
+  }
+
+  &__required {
+    color: $danger;
+    margin-left: 2px;
+  }
+
+  &__error {
+    font-size: $font-size-sm;
+    color: $danger;
+    margin-top: $spacing-4;
+  }
+
+  &__helper {
+    font-size: $font-size-sm;
+    color: $gray-600;
+    margin-top: $spacing-4;
+  }
+}

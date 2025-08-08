@@ -1,0 +1,17 @@
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
+CREATE TABLE IF NOT EXISTS checklists (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    tank_full BOOLEAN NOT NULL,
+    has_step BOOLEAN NOT NULL,
+    has_license BOOLEAN NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT INTO checklists (tank_full, has_step, has_license) VALUES
+(TRUE, TRUE, TRUE),
+(FALSE, TRUE, TRUE),
+(TRUE, FALSE, TRUE),
+(TRUE, TRUE, FALSE),
+(FALSE, FALSE, FALSE),
+(TRUE, FALSE, FALSE);

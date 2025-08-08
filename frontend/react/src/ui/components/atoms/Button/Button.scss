@@ -1,0 +1,108 @@
+@import '../../../../styles/base/variables';
+@import '../../../../styles/base/mixins';
+
+.button {
+  border: none;
+  border-radius: $border-radius;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: $font-weight-medium;
+  transition: all $transition;
+  @include flex-center;
+  gap: $spacing-8;
+  &--small {
+    padding: $spacing-8 $spacing-16;
+    font-size: $font-size-sm;
+    min-height: 32px;
+    max-height: 40px;
+  }
+
+  &--medium {
+    padding: $spacing-12 $spacing-24;
+    font-size: $font-size-base;
+    min-height: 40px;
+    max-height: 50px;
+  }
+
+  &--large {
+    padding: $spacing-16 $spacing-32;
+    font-size: $font-size-lg;
+    min-height: 48px;
+    max-height: 60px;
+  }
+
+  &--primary {
+    background-color: $primary;
+    color: $white;
+
+    &:hover:not(.button--disabled) {
+      background-color: $primary-light;
+      transform: translateY(-1px);
+    }
+  }
+
+  &--secondary {
+    background-color: $gray-600;
+    color: $white;
+
+    &:hover:not(.button--disabled) {
+      background-color: darken($gray-600, 10%);
+      transform: translateY(-1px);
+    }
+  }
+
+  &--success {
+    background-color: $success;
+    color: $white;
+
+    &:hover:not(.button--disabled) {
+      background-color: darken($success, 10%);
+      transform: translateY(-1px);
+    }
+  }
+
+  &--danger {
+    background-color: $danger;
+    color: $white;
+
+    &:hover:not(.button--disabled) {
+      background-color: darken($danger, 10%);
+      transform: translateY(-1px);
+    }
+  }
+
+  &--warning {
+    background-color: $warning;
+    color: $white;
+
+    &:hover:not(.button--disabled) {
+      background-color: darken($warning, 10%);
+      transform: translateY(-1px);
+    }
+  }
+
+  &--disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+  }
+
+  &--loading {
+    cursor: wait;
+  }
+
+  &__spinner {
+    animation: spin 1s linear infinite;
+  }
+
+  &__text {
+    &--loading {
+      opacity: 0.7;
+    }
+  }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

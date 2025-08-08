@@ -1,0 +1,71 @@
+@import '../../../styles/base/variables';
+@import '../../../styles/base/mixins';
+
+.checklist-page {
+  width: 100%;
+
+  &__actions {
+    display: flex;
+    gap: $spacing-16;
+    align-items: center;
+    flex-wrap: wrap;
+
+    button span:has(svg) {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-32;
+  }
+
+  &__main-section {
+    width: 100%;
+    box-shadow: $shadow;
+
+    &:has(.checklist-form) {
+      max-width: 900px;
+    }
+
+    
+    margin: 0 auto;
+  }
+
+  .checklist-form  {
+    background-color: $white;
+    border-radius: $border-radius;
+    padding: $spacing-32;
+
+    .checklist-form__fields {
+      gap: $spacing-32;
+    }
+
+    .checkbox__label {
+      font-weight: $font-weight-bold;
+      letter-spacing: 0.05em;
+    }
+  }
+
+
+  @media (max-width: 768px) {
+    &__actions {
+      flex-direction: column;
+      width: 100%;
+      gap: $spacing-12;
+      align-items: stretch;
+    }
+    
+    &__content {
+      gap: $spacing-24;
+    }
+  }
+
+  @media (max-width: 480px) {
+    &__content {
+      gap: $spacing-16;
+    }
+  }
+}

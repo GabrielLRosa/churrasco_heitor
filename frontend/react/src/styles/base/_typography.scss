@@ -1,0 +1,13 @@
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $font-weight-bold;
+  margin-bottom: $spacing-16;
+}
+
+h1 { font-size: $font-size-xl; }
+h2 { font-size: $font-size-lg; }
+h3 { font-size: $font-size-base; }
+
+p {
+  margin-bottom: $spacing-16;
+  line-height: 1.6;
+}
